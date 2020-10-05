@@ -1,7 +1,8 @@
 <template>
   <div class="shoppingList">
-    <h2 class="title is-1"> {{ header.toLocaleUpperCase() }} </h2>
-    <p class="title is-4" v-if="shoppingItems.length === 0">Glückwunsch, du hast keine Sachen auf dem Einkaufszettel!</p>
+    <br>
+    <br>
+    <p class="subtitle is-5" v-if="shoppingItems.length === 0">Glückwunsch, du hast keine Sachen auf dem Einkaufszettel!</p>
     <div class="columns">
       <div class="column"></div>
       <div class="column">
@@ -57,6 +58,7 @@ export default {
 <style>
 .strikeout {
   text-decoration: line-through;
+  text-decoration-color: red;
 }
 
 #nichtMarkierbar {
