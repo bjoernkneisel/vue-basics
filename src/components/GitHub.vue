@@ -5,6 +5,7 @@
       <div class="header">
         <h1 class="title">GitHub-Component</h1>
         <p class="subtitle is-6">Fetches Data from GitHub Api.</p>
+        <br>
       </div>
       <div class="card">
         <div class="card-image">

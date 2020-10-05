@@ -13,9 +13,9 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import ShoppingList from './components/ShoppingList.vue'
-import GitHub from './components/GitHub.vue'
-import HeroSection from './components/HeroSection.vue'
+import ShoppingList from '@/components/ShoppingList.vue'
+import GitHub from '@/components/GitHub.vue'
+import HeroSection from '@/components/HeroSection.vue'
 
 export default {
   name: 'App',
