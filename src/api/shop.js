@@ -2,14 +2,14 @@
  * Mocking API calls for testing purposes
  */
 const _products = [
-  {"id": 1, "title": "iPad 4 Mini", "price": 500.01, "inventory": 2},
-  {"id": 2, "title": "H&M T-Shirt White", "price": 10.99, "inventory": 10},
-  {"id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5}
+  {"id": 1, "title": "iPad Air", "price": 699.99, "inventory": 67},
+  {"id": 2, "title": "iPhone 12 Mini", "price": 689.99, "inventory": 22},
+  {"id": 3, "title": "Airbeat 2018 Full CD", "price": 19.99, "inventory": 122}
 ]
 
 export default {
   getProducts (cb) {
-    setTimeout(() => cb(_products), 100)
+    setTimeout(() => cb(_products), 850)
   },
 
   buyProducts (products, cb, errorCb) {
