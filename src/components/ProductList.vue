@@ -39,6 +39,9 @@
       },
       subtotal() {
         return this.$store.getters.subTotal;
+      },
+      productIsInStock() {
+        return this.$store.getters.productIsInStock;
       }
     },
     methods: {

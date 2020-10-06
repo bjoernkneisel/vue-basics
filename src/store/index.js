@@ -51,6 +51,11 @@ export default new Vuex.Store({
     },
     subTotal (state, getters) {
       return getters.cartItems.reduce((total, product)=> total + product.price * product.quantity, 0);
+    },
+    productIsInStock() {
+      return (product) => {
+        return product.inventory > 0;
+      }
     }
   },
   actions: { // make API calls here, but never alter our state.
