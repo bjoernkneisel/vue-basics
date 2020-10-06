@@ -7,6 +7,8 @@
     <ShoppingList></ShoppingList>
     <HeroSection msg="GitHub Component"></HeroSection>
     <GitHub username="bjoernkneisel"></GitHub>
+    <HeroSection msg="ProductList Component"></HeroSection>
+    <ProductList></ProductList>
     <HeroSection msg="THE END"></HeroSection>
   </div>
 </template>
@@ -16,6 +18,7 @@
 import ShoppingList from '@/components/ShoppingList.vue'
 import GitHub from '@/components/GitHub.vue'
 import HeroSection from '@/components/HeroSection.vue'
+import ProductList from '@/components/ProductList.vue'
 
 export default {
   name: 'App',
@@ -23,7 +26,8 @@ export default {
     // HelloWorld
     ShoppingList,
     GitHub,
-    HeroSection
+    HeroSection,
+    ProductList
   }
 }
 </script>
