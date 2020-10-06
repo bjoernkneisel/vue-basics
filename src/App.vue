@@ -7,7 +7,7 @@
     <ShoppingList></ShoppingList>
     <HeroSection msg="GitHub Component"></HeroSection>
     <GitHub username="bjoernkneisel"></GitHub>
-    <HeroSection msg="ProductList Component"></HeroSection>
+    <HeroSection msg="ProductList Component - Vuex Store"></HeroSection>
     <ProductList></ProductList>
     <HeroSection msg="THE END"></HeroSection>
   </div>
