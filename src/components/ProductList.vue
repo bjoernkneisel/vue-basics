@@ -1,12 +1,25 @@
 <template>
   <div class="root">
     <h1 class="title">Product List</h1>
-    <img v-if="loading" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
-    <ul v-else>
+    
+    <div class="columns">
+      <div class="column -is-one-fifth"></div>
+      <div class="column">
+        <img v-if="loading" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
+        <ul v-else>
       <li v-for="product in products" :key="product.title"> {{product.title}} - {{product.price}} € - {{product.inventory}}
-      <span class="tag is-primary" @click="addProductToCart(product)">In den Wagen legen</span>
       </li>
     </ul>
+      </div>
+      <div class="column">
+        <ul v-for="product in products" :key="product.title">
+          <li>
+            <span class="tag is-black" @click="addProductToCart(product)">In den Wagen legen</span>
+          </li>
+        </ul>
+      </div>
+      <div class="column is-one-fifth"></div>
+    </div>
     <br>
     <hr>
     <br>

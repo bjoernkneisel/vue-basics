@@ -56,6 +56,11 @@ export default new Vuex.Store({
       return (product) => {
         return product.inventory > 0;
       }
+    },
+    getProductById(state) {
+      return id => {
+        return state.products.find(product => product.id === id);
+      }
     }
   },
   actions: { // make API calls here, but never alter our state.
@@ -70,7 +75,7 @@ export default new Vuex.Store({
     addProductToCart (context, product) {
       console.log(product.inventory);
       console.log('Running addProductToCart');
-      if (product.inventory > 0) {
+      if (context.getters.productIsInStock(product)) {
         const cartItem = context.state.cart.find(item => item.id === product.id);
         if (!cartItem) {
           // push Product to cart
