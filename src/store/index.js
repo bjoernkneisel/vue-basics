@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: { // = Unique source of truth
     products: [],
     // {id, quantity}
-    cart: []
+    cart: [],
+    checkoutStatus: null
   },
   mutations: { // change state only with mutations (history)
     setProducts(state, products) {
@@ -33,6 +34,12 @@ export default new Vuex.Store({
       product.inventory--;
       console.log('Fehler coming in!');
       console.log('X.-x'+product.inventory);
+    },
+    setCheckoutStatus(state, status) {
+      state.checkoutStatus = status;
+    },
+    emptyCart(state) {
+      state.cart = [];
     }
   },
   getters: { // = computed properties, component-access
@@ -41,6 +48,9 @@ export default new Vuex.Store({
     },
     cartItems(state) {
       return state.cart;
+    },
+    subTotal (state, getters) {
+      return getters.cartItems.reduce((total, product)=> total + product.price * product.quantity, 0);
     }
   },
   actions: { // make API calls here, but never alter our state.
@@ -67,7 +77,19 @@ export default new Vuex.Store({
         }
         context.commit('decreaseProductInventory', product);
       }
-
+    },
+    // Action to proceed to checkout/payment processing
+    checkoutCart({state, commit}) {
+      shop.buyProducts(
+        state.cart,
+        () => {
+          commit('emptyCart');
+          commit('setCheckoutStatus', 'success')
+        },
+        () => {
+          commit('setCheckoutStatus', 'failure')
+        }
+      )
     } 
   }
 });

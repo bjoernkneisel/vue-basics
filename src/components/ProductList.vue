@@ -8,11 +8,17 @@
       </li>
     </ul>
     <br>
-    <h2 class="subtitle">Einkaufswagen</h2>
-    <ul>
-      <li v-for="item in cart" :key="item.id">{{item.quantity}} - {{item.title}} - {{item.price}} €</li> 
-    </ul>
-    <p class="subtitle is-6 subtotal">Summe: {{subtotal}} {{subTotal}} €</p>
+    <hr>
+    <br>
+    <section v-if="cart.length != 0">
+      <h2 class="subtitle">Einkaufswagen</h2>
+      <ul>
+        <li v-for="item in cart" :key="item.id">{{item.quantity}} - {{item.title}} - {{item.price}} €</li> 
+      </ul>
+      <p  class="subtitle is-6 subtotal">Summe: {{subtotal}} €</p>
+      <button class="button is-primary" @click="$store.dispatch('checkoutCart')">Bezahlen</button>
+    </section>
+      <p v-if="$store.state.checkoutStatus">{{$store.state.checkoutStatus}}</p>
   </div>
 </template>
 
@@ -21,7 +27,6 @@
     data() {
       return {
         loading: false,
-        subTotal: 0
       }
     },
     computed: {
@@ -29,14 +34,11 @@
         return this.$store.getters.availableProducts;
       },
       cart() {
+        console.log(this.$store.getters.cartItems);
         return this.$store.getters.cartItems;
       },
       subtotal() {
-        console.log(this.$store.getters.cartItems);
-        return this.$store.getters.cartItems.forEach(element => {
-          console.log("SubTotal:" + this.subTotal);
-          this.subTotal = this.subTotal + (element.price * element.quantity)
-        });
+        return this.$store.getters.subTotal;
       }
     },
     methods: {
